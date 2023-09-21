@@ -2,8 +2,8 @@ package herança.fixacao2.entities;
 
 public class Product {
 	
-	private String name;
-	private Double price;
+	protected String name;
+	protected Double price;
 	
 	public Product() {
 	}
@@ -29,11 +29,12 @@ public class Product {
 		this.price = price;
 	}
 	
-	public String priceTag(String name, Double price) {
-		StringBuilder sb = new StringBuilder();
-		sb.append(name + " $ " + price);		
-		return sb.toString();			
+	@Override
+	public String toString() {	
+		return String.format("%s $ %.2f", name, price);			
 	}
+	
+	
 	
 	
 

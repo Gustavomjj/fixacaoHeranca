@@ -6,17 +6,15 @@ public class ImportedProduct extends Product {
 	
 	public ImportedProduct() {
 	}
-
-	public ImportedProduct(Double customsFee) {
-		this.customsFee = customsFee;
-	} 
 	
+	public ImportedProduct(String name, Double price, Double customsFee) {
+		super(name, price);
+		this.customsFee = customsFee;
+	}
+
 	@Override
-	public String priceTag(String name, Double price) {
-		StringBuilder sb = new StringBuilder();
-		sb.append(name + " $ " + price);		
-		return sb.toString();			
+	public String toString () {	
+		return String.format("%s $ %.2f (Customs fee: $ %.2f)", name, (price+customsFee), customsFee);			
 	}
 	
-
 }
